@@ -1,5 +1,5 @@
 # DocTime
-Download App here : https://github.com/dileepxdn/DocTime/blob/master/DocTime%20Android%20%26%20IOS%20APP/DocTime%20beta.apk
+Download App here : https://github.com/bsrsreekar/DocDB/blob/master/DocDB%20Android%20%26%20IOS%20APP/DocTime%20beta.apk
 
 # Screen Shots : 
 
