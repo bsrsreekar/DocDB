@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>View</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+<!-- <h1>{{doct | async | json}}</h1> -->
+
+<div *ngIf="doct | async as doct">
+  
+  <ion-card>
+    <img [src]="doct.image_url" />
+
+  </ion-card>
+
+
+  <ion-card-content>
+    <ion-card-title>
+      {{doct.name}}
+    </ion-card-title>
+    <p style="padding-top: 10px">
+      <b>Mail:</b> {{doct.email}}
+    </p>
+   
+
+    <p *ngIf="doct.phones">
+      phones :
+      <b *ngFor="let p of doct.phones"><br>{{p.number}}</b>
+    </p>
+    <p>
+      <b>About:</b>{{doct.description}}
+    </p>
+
+    <p>
+      <b>Specializations:</b>
+    </p>
+    <div style="margin-bottom: 5px"></div>
+    <ion-chip *ngFor="let spe of doct.specialization">
+      <ion-label>{{spe.specialist}}</ion-label>
+    </ion-chip>
+<br>
+
+    <p *ngIf="doct.degrees">
+      Education :
+      <b *ngFor="let edu of doct.degrees"><br>{{edu.degree}}</b>
+    </p>
+
+
+
+    <p>
+      <b>Experience: </b>{{doct.experience}}
+    </p>
+
+    <p *ngIf="doct.memberships">
+      Memberships :
+      <b *ngFor="let m of doct.memberships"><br>{{m.membership}}</b>
+    </p>
+
+    <ion-button expand="full" fill="outline">Book Slot</ion-button>
+
+
+
+  </ion-card-content>
+</div>
+
+</ion-content>
+
+<div *ngIf="user">
+
+  <ion-fab *ngIf="user.roles.admin" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="delete()">
+      <ion-icon name="md-trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
